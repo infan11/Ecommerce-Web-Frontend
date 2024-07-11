@@ -22,7 +22,7 @@ module.exports = withMT({
   ],
   theme: {
     fontFamily: {
-      sans: ["Open Sans", "Josefin Sans"],
+      sans: ["Josefin Sans", "Open Sans"],
     },
   },
   plugins: [require("daisyui")]

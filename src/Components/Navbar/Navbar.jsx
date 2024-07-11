@@ -1,91 +1,95 @@
-
-import { Link, NavLink } from 'react-router-dom';
+import React from 'react';
 import logo from '../../assets/logo/logo.png'
+import { Link, NavLink } from 'react-router-dom';
+import { Input, Typography } from "@material-tailwind/react";
+import { IoIosSearch } from "react-icons/io";
+import { HiOutlineShoppingBag } from "react-icons/hi2";
+import { MdOutlineManageAccounts } from "react-icons/md";
+import { GiSelfLove } from "react-icons/gi";
+import { RiMenuFill } from "react-icons/ri";
 const Navbar = () => {
-  const navlinks = <>
+  const navLinks = <>
   <NavLink
   to="/"
-  className={({ isActive, isPending }) =>
-    isPending ? "pending" : isActive ? " border-b-2 border-purple-400 font-bold text-xl" : "font-bold text-xl"
+  className={({ isActive, isPending, isTransitioning }) =>
+    [
+      isPending ? "pending" : "",
+      isActive ? "border-b-4 border-green-400 text-[13px] font-bold " : "",
+      isTransitioning ? "transitioning" : "",
+    ].join(" ")
   }
 >
-  HOME
+ HOME
 </NavLink>
   <NavLink
   to="/register"
-  className={({ isActive, isPending }) =>
-    isPending ? "pending" : isActive ? " border-b-2 border-purple-400 font-bold text-xl" : "font-bold text-xl"
+  className={({ isActive, isPending, isTransitioning }) =>
+    [
+      isPending ? "pending" : "",
+      isActive ? "border-b-4 border-green-400 text-[13px] font-bold" : "",
+      isTransitioning ? "transitioning" : "",
+    ].join(" ")
   }
 >
-  SIGNUP
+ SIGNUP 
 </NavLink>
   <NavLink
   to="/login"
-  className={({ isActive, isPending }) =>
-    isPending ? "pending" : isActive ? " border-b-2 border-purple-400 font-bold text-xl" : "font-bold text-xl"
+  className={({ isActive, isPending, isTransitioning }) =>
+    [
+      isPending ? "pending" : "",
+      isActive ? "border-b-4 border-green-400 text-[13px] font-bold" : "",
+      isTransitioning ? "transitioning" : "",
+    ].join(" ")
   }
 >
-  SIGNIN
+ SIGNIN
 </NavLink>
   </>
-    return (
-        <div>
-            <div className="navbar fixed z-10  bg-gradient-to-tr from-[#1e066e]  to-[#6811835c]">
+  return (
+    <div>
+      <div className=" bg-base-100">
+  <a className="btn btn-ghost text-xl">daisyUI</a>
+</div>
+      {/* Second Navbar */}
+      <div className="navbar  -top-10 bg-white text-black">
   <div className="navbar-start">
     <div className="dropdown">
-      <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="h-5 w-5"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor">
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2"
-            d="M4 6h16M4 12h8m-8 6h16" />
-        </svg>
+      <div tabIndex={0} role="button" className="btn btn-ghost text-4xl lg:hidden">
+      <RiMenuFill />
       </div>
       <ul
         tabIndex={0}
         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
-        {navlinks}
+     {navLinks}
       </ul>
     </div>
- <Link to={"/"}>   <img  className='w-16 text-5xl ' src={logo} alt="" /></Link>
-  </div>
-  <div className="navbar-center hidden lg:flex ">
-    <ul className="menu menu-horizontal px-1 gap-5">
-     {navlinks}
+    
+    <Link className='w-16' to={"/"}> <img src={logo} alt="" /></Link>
+    <div className="ml-16 hidden lg:flex">
+    <ul className="menu menu-horizontal px- gap-3">
+      {navLinks}
     </ul>
   </div>
-  <div className="navbar-end  ">
-  <div className="dropdown dropdown-end ">
-      <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
-        <div className="w-10 rounded-full">
-          <img
-            alt="Tailwind CSS Navbar component"
-            src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
-        </div>
-      </div>
-      <ul
-        tabIndex={0}
-        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow creative-gradient-dropdown">
-        <li>
-          <a className="justify-between">
-            Profile
-            <span className="badge">New</span>
-          </a>
-        </li>
-        <li><a>Settings</a></li>
-        <li><a>Logout</a></li>
-      </ul>
+  </div>
+  <div className="w-full -mr-28 md:block hidden">
+      <Input label="Search" className='rounded-full' icon={<IoIosSearch />} />
+     
     </div>
+  
+  <div className="navbar-end">
+  <div className='flex gap-3'>
+    <Link className='text-[19px] font-bold '><HiOutlineShoppingBag /></Link>
+    <Link className='text-[19px]  font-bold '><MdOutlineManageAccounts /></Link>
+    <Link className='text-[19px]  font-bold '><GiSelfLove /></Link>
+    </div>
+   <div>
+    <img src={logo} className='w-16  rounded-full' alt="" />
+   </div>
   </div>
 </div>
-        </div>
-    );
+    </div>
+  );
 };
 
 export default Navbar;

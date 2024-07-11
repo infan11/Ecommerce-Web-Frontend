@@ -5,13 +5,18 @@ import './index.css'
 import { RouterProvider } from 'react-router-dom'
 import { router } from './Routes/Routes.jsx'
 import { ThemeProvider } from '@material-tailwind/react'
+import AuthProvider from './Components/AuthProvider/AuthProvider.jsx'
+import { Toaster } from 'react-hot-toast'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-  <div className='body'>
+  <AuthProvider>
+    <Toaster/>
+  <div className=''>
   <ThemeProvider>
   <RouterProvider router={router} />
     </ThemeProvider>
   </div>
+  </AuthProvider>
   </React.StrictMode>,
 )
