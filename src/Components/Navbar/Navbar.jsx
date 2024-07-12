@@ -175,7 +175,12 @@ const Navbar = () => {
           <Link to="/"><img className='w-16' src={logo} alt="logo" /></Link>
         </div>
         <div className="navbar-end">
-          <p className="text-2xl font-bold mr-2 text-black"><HiOutlineMail /></p>
+        <div className="form-control relative">
+            {/* <input type="text" placeholder="Search" className="input input-bordered border-4 rounded-full border-gray-400 bg-white  focus:outline-none h-10 w-32" /> */}
+            <span className="absolute  top-0 right-2 flex items-center justify-center h-full w-8 text-white text-2xl">
+              <IoIosSearch />
+            </span>
+          </div>
           <div>
             <Menu open={isMobileMenuOpen} handler={setIsMenuOpen} placement="bottom-end">
               <MenuHandler>
@@ -230,7 +235,7 @@ const Navbar = () => {
       </div>
 
       {/* Second Navbar */}
-      <div className={`navbar bg-white text-black ${scrolled ? 'fixed top-0 left-0 w-full shadow-md z-10' : ''}`}>
+      <div className={`navbar bg-[#1d56ab52] fixed z-10 text-white ${scrolled ? 'fixed top-0 left-0 w-full shadow-md z-10' : ''}`}>
         <div className="navbar-start">
           {/* Drawer */}
           <React.Fragment>
@@ -294,15 +299,10 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="navbar-end gap-4">
-          <div className="form-control relative">
-            {/* <input type="text" placeholder="Search" className="input input-bordered border-4 rounded-full border-gray-400 bg-white  focus:outline-none h-10 w-32" /> */}
-            <span className="absolute  top-0 right-2 flex items-center justify-center h-full w-8 text-black text-2xl">
-              <IoIosSearch />
-            </span>
-          </div>
-          <Link className='text-3xl text-black'><HiOutlineShoppingBag /></Link>
-          <Link className='text-3xl text-black'><MdOutlineManageAccounts /></Link>
-          <Link className='text-3xl text-black'><GiSelfLove /></Link>
+         
+          <Link className='text-3xl text-white'><HiOutlineShoppingBag /></Link>
+          <Link className='text-3xl text-white'><MdOutlineManageAccounts /></Link>
+          <Link className='text-3xl text-white'><GiSelfLove /></Link>
         </div>
       </div>
     </div>

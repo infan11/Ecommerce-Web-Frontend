@@ -12,10 +12,20 @@ import { imageUpload } from "../../Hooks/ImageHooks/ImageHooks";
 import UserHooks from "../../Hooks/UserHooks/UserHooks";
 import toast from "react-hot-toast";
 import { Link, Navigate, useNavigate } from "react-router-dom";
+import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai';
+import { useState } from "react";
+
+
+
   
   const Register = () => {
     const {createUser ,googleUserProvider, twitterUserProvider,updateProfiles} = UserHooks();
     const navigate = useNavigate();
+    
+  const [showPassword, setShowPassword] = useState(false);
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
     const from = location.state?.from?.pathname  || "/"
     const handleFormSubmit = async (event) => {
       event.preventDefault();
@@ -66,15 +76,30 @@ import { Link, Navigate, useNavigate } from "react-router-dom";
         <div className="min-h-screen flex justify-center items-center">
           <form onSubmit={handleFormSubmit}>
             <Card className="w-96">
-              <CardHeader className="mb-4 grid h-28 shadow-2xl place-items-center creative-gradient-navbar bg-gradient-to-tr from-[#2931cf] to-[#8303aab5]">
-                <Typography variant="h3" color="white" className="hover:text-white">
+              <CardHeader className="mb-4 grid h-28 shadow-2xl place-items-center  ">
+                <Typography variant="h3" color="white" className="text-black  hover:text-white">
                   SIGN UP
                 </Typography>
               </CardHeader>
               <CardBody className="flex flex-col gap-4">
                 <Input label="Name" name="name" size="lg" required />
                 <Input label="Email" name="email" size="lg" required />
-                <Input label="Password" name="password" size="lg" required />
+                <div className="relative">
+      <Input
+        label="Password"
+        name="password"
+        size="lg"
+        type={showPassword ? 'text' : 'password'}
+        required
+      />
+      <Button
+        onClick={togglePasswordVisibility}
+        variant="text"
+        className="absolute inset-y-0 right-0 flex items-center px-4"
+      >
+        {showPassword ? <AiOutlineEyeInvisible /> : <AiOutlineEye />}
+      </Button>
+    </div>
                   <Input label="Image" type="file"name="photo"  accept="image/*"  className="file-input file-input-ghost w-full max-w-xs" required />
              
                 <div className="-ml-2.5">
