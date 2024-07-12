@@ -12,7 +12,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
   <AuthProvider>
     <Toaster/>
-  <div className=''>
+  <div className='bg-white'>
   <ThemeProvider>
   <RouterProvider router={router} />
     </ThemeProvider>
