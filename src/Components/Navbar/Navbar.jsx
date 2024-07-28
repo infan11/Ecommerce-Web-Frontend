@@ -50,9 +50,17 @@ import {
 } from "@heroicons/react/24/solid";
 import { CiMobile3 } from "react-icons/ci";
 import { BiCollection } from "react-icons/bi";
+import userHooks from "../Hooks/UserHooks/userHooks";
+
 const Navbar = () => {
-
-
+const {user , Logout} = userHooks();
+console.log(user);
+const handleLogout = () =>{
+  Logout()
+  .then(() => {})
+ .caches(error => console.log(error))
+}
+console.log(" photo url " ,user?.photoURL);
   const navListMenuItems = [
     {
       title: "HOME",
@@ -160,16 +168,13 @@ const Navbar = () => {
       icon: LifebuoyIcon,
       path: "/help"
     },
-    {
-      label: "Sign Out",
-      icon: PowerIcon,
-      path: "/sign-out"
-    },
+ user ?  { label: "Sign Out", icon: PowerIcon, path: "/login", action: handleLogout } 
+  :  { label: "Login", icon: PowerIcon, path: "/login", }
   ];
 
   return (
     <div>
-      <div className="navbar bg-white border-b-4 border-gray-200">
+      <div className="navbar bg-white borxder-b-4 border-gray-200">
         <div className="navbar-start"></div>
         <div className="navbar-center">
           <Link to="/"><img className='w-16' src={logo} alt="logo" /></Link>
@@ -182,7 +187,9 @@ const Navbar = () => {
             </span>
           </div>
           <div>
-            <Menu open={isMobileMenuOpen} handler={setIsMenuOpen} placement="bottom-end">
+         {
+          user ? <>
+              <Menu open={isMobileMenuOpen} handler={setIsMenuOpen} placement="bottom-end">
               <MenuHandler>
                 <Button
                   variant="text"
@@ -196,10 +203,13 @@ const Navbar = () => {
                     withBorder={true}
                     color="blue-gray"
                     className=" p-0.5"
-                    src="https://docs.material-tailwind.com/img/face-2.jpg"
+                    src={user?.photoURL || 'default-avatar-url'}
+                    
                   />
                 </Button>
+                
               </MenuHandler>
+            
               <MenuList className="p-1">
                 {profileMenuItems.map(({ label, icon, path }, key) => {
                   const isLastItem = key === profileMenuItems.length - 1;
@@ -230,12 +240,16 @@ const Navbar = () => {
                 })}
               </MenuList>
             </Menu>
+          </> :<>
+           <NavLink to={"/login"} ><Button className="creative-gradient-button">LOGIN </Button></NavLink>
+          </>
+         }
           </div>
         </div>
       </div>
 
       {/* Second Navbar */}
-      <div className={`navbar bg-[#1d56ab52] fixed z-10 text-white ${scrolled ? 'fixed top-0 left-0 w-full shadow-md z-10' : ''}`}>
+      <div className={`navbar bg-[#1d56aba6]  text-white ${scrolled ? 'fixed top-0 left-0  w-full shadow-md z-10 ' : ''}`}>
         <div className="navbar-start">
           {/* Drawer */}
           <React.Fragment>
@@ -280,7 +294,7 @@ const Navbar = () => {
           </React.Fragment>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1 gap-5">
+          <ul className="menu menu-horizontal px-1 gap-4 ">
             {navListMenuItems.map(({ title, path }) => (
               <NavLink
                 to={path}
@@ -288,7 +302,7 @@ const Navbar = () => {
                 className={({ isActive, isPending, isTransitioning }) =>
                   [
                     isPending ? "pending" : "",
-                    isActive ? " text-[13px] font-bold  border-b-2 border-green-700" : "text-[13px] hover:text-green-700 font-bold",
+                    isActive ? "text-[13px] font-bold  border-b-2 border-green-700" : "text-[13px]    hover:text-green-700 font-bold ",
                     isTransitioning ? "transitioning" : "",
                   ].join(" ")
                 }

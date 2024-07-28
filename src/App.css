@@ -1,0 +1,71 @@
+.borderRounded{
+    border-radius: 50% 20% / 10% 40% ;
+    box-shadow: inset 0px 20px 20px 20px;
+}
+.imageborderRounded{
+    border-radius: 50% 20% / 10% 40%;
+    box-shadow: inset 0px 20px 20px 20px;
+}
+.creative-gradient-button {
+    position: relative;
+    background: linear-gradient(45deg, #1d56ab52, #1e066e33); 
+    border: none;
+    border-radius: 30px;
+    padding: 15px 30px;
+    color: #1d56ab52;
+    font-size: 18px;
+    cursor: pointer;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    transition: all 0.5s ease; 
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+    
+  }
+  
+  .creative-gradient-button:hover {
+    background: linear-gradient(45deg, #1d56ab52, #021e49b4); 
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4); 
+    transform: translateY(4px) scale(1.00); 
+  }
+  
+  .creative-gradient-button:focus {
+    outline: none;
+    background: linear-gradient(45deg, #1d56ab52, rgb(16, 14, 52)52, #2e01ce52); /* Lighter gradient on focus */
+    transform: translateY(-5px) scale(1.05); 
+  }
+  
+  .creative-gradient-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, transparent, transparent, rgba(0, 0, 0, 0.4), rgba(33, 5, 29, 0.454)); /* Gradient line animation */
+  
+    border-radius: 30px;
+    animation: lineAnimation 4s linear infinite, topDownAnimation 1s ease; /* Line and top-down animation */
+    backdrop-filter: blur(10px); /* Background blur effect for the animated element */
+  }
+  
+  @keyframes lineAnimation {
+    0% {
+      transform: translateY(-100%);
+    }
+    50% {
+      transform: translateY(100%);
+    }
+    100% {
+      transform: translateY(-100%);
+    }
+  }
+  
+  @keyframes topDownAnimation {
+    0%, 100% {
+      transform: scaleY(1);
+    }
+    50% {
+      transform: scaleY(1.2);
+    }
+  }
+  /*  */

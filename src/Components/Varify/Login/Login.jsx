@@ -9,6 +9,7 @@ import {
     Checkbox,
     Button,
   } from "@material-tailwind/react";
+import { Link } from "react-router-dom";
 const Login = () => {
 
     return (
@@ -43,8 +44,9 @@ const Login = () => {
             variant="small"
             color="blue-gray"
             className="ml-1 font-bold " 
+          
           >
-            Sign up
+       <Link to={"/register"}>Sign up</Link>
           </Typography>
         </Typography>
       </CardFooter>

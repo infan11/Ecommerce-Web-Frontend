@@ -7,10 +7,7 @@ import { Pagination } from 'swiper/modules';
 import {
     Card,
     CardHeader,
-    CardBody,
-    CardFooter,
-    Typography,
-    Button,
+  
   } from "@material-tailwind/react";
 const Category = () => {
     return (

@@ -2,6 +2,7 @@ import React from 'react';
 import Slider from '../Slider/Slider';
 import Category from '../Category/Category';
 import { Helmet } from 'react-helmet';
+import PromotionalsOffer from '../PromotionalsOffer/PromotionalsOffer';
 
 const Home = () => {
     return (
@@ -12,6 +13,7 @@ const Home = () => {
             </Helmet>
               <Slider/>
               <Category/>
+              <PromotionalsOffer/>
         </div>
     );
 };

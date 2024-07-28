@@ -8,9 +8,11 @@ import { ThemeProvider } from '@material-tailwind/react'
 import AuthProvider from './Components/AuthProvider/AuthProvider.jsx'
 import { Toaster } from 'react-hot-toast'
 
+
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
   <AuthProvider>
+   
     <Toaster/>
   <div className='bg-white'>
   <ThemeProvider>

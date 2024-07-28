@@ -9,17 +9,17 @@ import {
     Button,
   } from "@material-tailwind/react";
 import { imageUpload } from "../../Hooks/ImageHooks/ImageHooks";
-import UserHooks from "../../Hooks/UserHooks/UserHooks";
 import toast from "react-hot-toast";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai';
 import { useState } from "react";
+import userHooks from "../../Hooks/UserHooks/userHooks";
 
 
 
   
   const Register = () => {
-    const {createUser ,googleUserProvider, twitterUserProvider,updateProfiles} = UserHooks();
+    const {createUser ,googleUserProvider, twitterUserProvider,updateProfiles ,setUser} = userHooks();
     const navigate = useNavigate();
     
   const [showPassword, setShowPassword] = useState(false);
@@ -43,6 +43,7 @@ import { useState } from "react";
       createUser(email , password)
       .then(result => {
         const user = result.user;
+        setUser(user)
         console.log(user);
        updateProfiles(name , imageData?.data?.display_url)
        .then(() => {
@@ -57,6 +58,7 @@ import { useState } from "react";
      googleUserProvider()
      .then(result => {
       const googleAuth = result.user;
+       setUser(googleAuth)
       console.log(googleAuth);
       toast.success("Successfully Google SignUP")
       navigate(from , {replace : true})
@@ -66,6 +68,7 @@ import { useState } from "react";
     twitterUserProvider()
     .then(result => {
        const twitter = result.user;
+       setUser(twitter)
        console.log(twitter);
        toast.success("Successfully X SignUP")
        navigate(from , {replace : true})
