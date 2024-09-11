@@ -25,7 +25,7 @@ const Slider = () => {
     <SwiperSlide>
 
         <div>
-          <img className=' lg:h-[600px] w-full   ' src={"https://i.ibb.co/vkqXgYX/Brown-Minimalist-Helping-Value-Business-Blog-Banner-2.jpg"} alt="" />
+          <img className=' lg:h-[600px] w-full   ' src={"https://i.ibb.co/kSk0kf5/BOOK.png"} alt="" />
         </div>
     </SwiperSlide>
   
@@ -38,7 +38,7 @@ const Slider = () => {
     <SwiperSlide>
 
         <div>
-          <img className=' lg:h-[600px] w-full  ' src={"https://i.ibb.co/kSk0kf5/BOOK.png"} alt="" />
+          <img className=' lg:h-[600px] w-full  ' src={"https://i.ibb.co/vkqXgYX/Brown-Minimalist-Helping-Value-Business-Blog-Banner-2.jpg"} alt="" />
         </div>
     </SwiperSlide>
       </Swiper>

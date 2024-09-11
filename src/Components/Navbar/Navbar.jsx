@@ -53,14 +53,15 @@ import { BiCollection } from "react-icons/bi";
 import userHooks from "../Hooks/UserHooks/userHooks";
 
 const Navbar = () => {
-const {user , Logout} = userHooks();
-console.log(user);
-const handleLogout = () =>{
-  Logout()
-  .then(() => {})
- .caches(error => console.log(error))
-}
-console.log(" photo url " ,user?.photoURL);
+  const { user, Logout  ,loading} = userHooks() || {};
+  console.log(user, );
+  const handleLogout = () => {
+    Logout()
+      .then(() => { })
+    console.log(handleLogout, "logout")
+      .caches(error => console.log(error))
+  }
+  console.log(" photo url ", user?.photoURL);
   const navListMenuItems = [
     {
       title: "HOME",
@@ -113,7 +114,7 @@ console.log(" photo url " ,user?.photoURL);
     {
       title: "BARND",
       description: "Explore limited-time deals and bundles",
-      icon: MdOutlineLocalLibrary ,
+      icon: MdOutlineLocalLibrary,
       path: "/brand"
     },
     {
@@ -168,10 +169,12 @@ console.log(" photo url " ,user?.photoURL);
       icon: LifebuoyIcon,
       path: "/help"
     },
- user ?  { label: "Sign Out", icon: PowerIcon, path: "/login", action: handleLogout } 
-  :  { label: "Login", icon: PowerIcon, path: "/login", }
+    user ? { label: "Sign Out", icon: PowerIcon, path: "/login", onClick: handleLogout }
+      : { label: "Login", icon: PowerIcon, path: "/login", }
   ];
-
+// if(loading){
+//   return <p>Loading ....</p>
+// }
   return (
     <div>
       <div className="navbar bg-white borxder-b-4 border-gray-200">
@@ -180,70 +183,70 @@ console.log(" photo url " ,user?.photoURL);
           <Link to="/"><img className='w-16' src={logo} alt="logo" /></Link>
         </div>
         <div className="navbar-end">
-        <div className="form-control relative">
+          <div className="form-control relative">
             {/* <input type="text" placeholder="Search" className="input input-bordered border-4 rounded-full border-gray-400 bg-white  focus:outline-none h-10 w-32" /> */}
             <span className="absolute  top-0 right-2 flex items-center justify-center h-full w-8 text-white text-2xl">
               <IoIosSearch />
             </span>
           </div>
           <div>
-         {
-          user ? <>
-              <Menu open={isMobileMenuOpen} handler={setIsMenuOpen} placement="bottom-end">
-              <MenuHandler>
-                <Button
-                  variant="text"
-                  color="blue-gray"
-                  className="flex items-center rounded-full p-0"
-                >
-                  <Avatar
-                    variant="circular"
-                    size="md"
-                    alt="profile"
-                    withBorder={true}
-                    color="blue-gray"
-                    className=" p-0.5"
-                    src={user?.photoURL || 'default-avatar-url'}
-                    
-                  />
-                </Button>
-                
-              </MenuHandler>
-            
-              <MenuList className="p-1">
-                {profileMenuItems.map(({ label, icon, path }, key) => {
-                  const isLastItem = key === profileMenuItems.length - 1;
-                  return (
-                    <NavLink to={path} key={label}>
-                      <MenuItem
-                        onClick={closeMenu}
-                        className={`flex items-center gap-2 rounded ${isLastItem
-                          ? "hover:bg-red-500/10 focus:bg-red-500/10 active:bg-red-500/10"
-                          : ""
-                          }`}
-                      >
-                        {React.createElement(icon, {
-                          className: `h-4 w-4 ${isLastItem ? "text-red-500" : ""}`,
-                          strokeWidth: 2,
-                        })}
-                        <Typography
-                          as="span"
-                          variant="small"
-                          className="font-normal"
-                          color={isLastItem ? "red" : "inherit"}
-                        >
-                          {label}
-                        </Typography>
-                      </MenuItem>
-                    </NavLink>
-                  );
-                })}
-              </MenuList>
-            </Menu>
-          </> :<>
-           <NavLink to={"/login"} ><Button className="creative-gradient-button">LOGIN </Button></NavLink>
-          </>
-         }
+            {
+              user ? <>
+                <Menu open={isMobileMenuOpen} handler={setIsMenuOpen} placement="bottom-end">
+                  <MenuHandler>
+                    <Button
+                      variant="text"
+                      color="blue-gray"
+                      className="flex items-center rounded-full p-0"
+                    >
+                      <Avatar
+                        variant="circular"
+                        size="md"
+                        alt="profile"
+                        withBorder={true}
+                        color="blue-gray"
+                        className=" p-0.5"
+                        src={user?.photoURL || 'default-avatar-url'}
+
+                      />
+                    </Button>
+
+                  </MenuHandler>
+
+                  <MenuList className="p-1">
+                    {profileMenuItems.map(({ label, icon, path }, key) => {
+                      const isLastItem = key === profileMenuItems.length - 1;
+                      return (
+                        <NavLink to={path} key={label}>
+                          <MenuItem
+                            onClick={closeMenu}
+                            className={`flex items-center gap-2 rounded ${isLastItem
+                              ? "hover:bg-red-500/10 focus:bg-red-500/10 active:bg-red-500/10"
+                              : ""
+                              }`}
+                          >
+                            {React.createElement(icon, {
+                              className: `h-4 w-4 ${isLastItem ? "text-red-500" : ""}`,
+                              strokeWidth: 2,
+                            })}
+                            <Typography
+                              as="span"
+                              variant="small"
+                              className="font-normal"
+                              color={isLastItem ? "red" : "inherit"}
+                            >
+                              {label}
+                            </Typography>
+                          </MenuItem>
+                        </NavLink>
+                      );
+                    })}
+                  </MenuList>
+                </Menu>
+              </> : <>
+                <NavLink to={"/login"} ><Button className="creative-gradient-button">LOGIN </Button></NavLink>
+              </>
+            }
           </div>
         </div>
       </div>
@@ -258,9 +261,9 @@ console.log(" photo url " ,user?.photoURL);
               <div className="mb-2 flex items-center justify-between p-4">
                 <Typography className="" variant="h5" color="blue-gray">
                   APT COMMERCE
-                
+
                 </Typography>
-            
+
                 <IconButton variant="text" color="blue-gray" onClick={closeDrawer}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -302,7 +305,7 @@ console.log(" photo url " ,user?.photoURL);
                 className={({ isActive, isPending, isTransitioning }) =>
                   [
                     isPending ? "pending" : "",
-                    isActive ? "text-[13px] font-bold  border-b-2 border-green-700" : "text-[13px]    hover:text-green-700 font-bold ",
+                    isActive ? "text-[13px] font-bold  border-b-2 border-yellow-700" : "text-[13px]    hover:text-green-700 font-bold ",
                     isTransitioning ? "transitioning" : "",
                   ].join(" ")
                 }
@@ -313,10 +316,11 @@ console.log(" photo url " ,user?.photoURL);
           </ul>
         </div>
         <div className="navbar-end gap-4">
-         
+
           <Link className='text-3xl text-white'><HiOutlineShoppingBag /></Link>
           <Link className='text-3xl text-white'><MdOutlineManageAccounts /></Link>
           <Link className='text-3xl text-white'><GiSelfLove /></Link>
+
         </div>
       </div>
     </div>

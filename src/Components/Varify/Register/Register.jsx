@@ -11,7 +11,6 @@ import {
 import { imageUpload } from "../../Hooks/ImageHooks/ImageHooks";
 import toast from "react-hot-toast";
 import { Link, Navigate, useNavigate } from "react-router-dom";
-import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai';
 import { useState } from "react";
 import userHooks from "../../Hooks/UserHooks/userHooks";
 
@@ -21,11 +20,6 @@ import userHooks from "../../Hooks/UserHooks/userHooks";
   const Register = () => {
     const {createUser ,googleUserProvider, twitterUserProvider,updateProfiles ,setUser} = userHooks();
     const navigate = useNavigate();
-    
-  const [showPassword, setShowPassword] = useState(false);
-  const togglePasswordVisibility = () => {
-    setShowPassword(!showPassword);
-  };
     const from = location.state?.from?.pathname  || "/"
     const handleFormSubmit = async (event) => {
       event.preventDefault();
@@ -87,21 +81,29 @@ import userHooks from "../../Hooks/UserHooks/userHooks";
               <CardBody className="flex flex-col gap-4">
                 <Input label="Name" name="name" size="lg" required />
                 <Input label="Email" name="email" size="lg" required />
-                <div className="relative">
-      <Input
-        label="Password"
-        name="password"
-        size="lg"
-        type={showPassword ? 'text' : 'password'}
-        required
-      />
-      <Button
-        onClick={togglePasswordVisibility}
-        variant="text"
-        className="absolute inset-y-0 right-0 flex items-center px-4"
+                <div className="">
+      <Input type="password" label="Password" name="password" required />
+      <Typography
+        variant="small"
+        color="gray"
+        className="mt-2 flex items-center gap-1 font-normal"
       >
-        {showPassword ? <AiOutlineEyeInvisible /> : <AiOutlineEye />}
-      </Button>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+          className="-mt-px h-4 w-4"
+        >
+          <path
+            fillRule="evenodd"
+            d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm8.706-1.442c1.146-.573 2.437.463 2.126 1.706l-.709 2.836.042-.02a.75.75 0 01.67 1.34l-.04.022c-1.147.573-2.438-.463-2.127-1.706l.71-2.836-.042.02a.75.75 0 11-.671-1.34l.041-.022zM12 9a.75.75 0 100-1.5.75.75 0 000 1.5z"
+            clipRule="evenodd"
+          />
+        </svg>
+       <p className="text-[10px]"> Use at least 8 characters</p>
+      </Typography>
+
+      
     </div>
                   <Input label="Image" type="file"name="photo"  accept="image/*"  className="file-input file-input-ghost w-full max-w-xs" required />
              

@@ -4,7 +4,7 @@ import image from '../../../assets/banner/Black Men Clothing Promo Instagram Pos
 const PromotionalsOffer = () => {
 
     return (
-        <div className="min-h-screen flex items-center justify-center ">
+        <div className="min-h-screen flex items-center justify-center  ">
       <div
         className="hero h-[600px] w-full mt-10 mb-10 bg-fixed bg-cover bg-center"
         style={{
@@ -16,10 +16,10 @@ const PromotionalsOffer = () => {
           <div data-aos="fade-right"
      data-aos-anchor-placement="center-bottom" className="hero-content bg-fixed flex items-center justify-center">
             <div className="max-w-md text-center md:text-left">
-              <div className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 creative-gradient-button mt-3">
+              <div className="text-[23px] font-bold bg-clip-text md:w-80 lg:w-[500px] text-transparent text-white text-center creative-gradient-button mt-3">
                 <Typewriter
                   options={{
-                    strings: ['Summer', 'Collection'],
+                    strings: ['Men Summer Collection'],
                     autoStart: true,
                     loop: true,
                     

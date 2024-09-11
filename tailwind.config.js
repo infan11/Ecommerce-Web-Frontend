@@ -24,6 +24,7 @@ module.exports = withMT({
     fontFamily: {
       sans: ["Josefin Sans", "Open Sans"],
     },
+    
   },
   plugins: [require("daisyui")]
 });

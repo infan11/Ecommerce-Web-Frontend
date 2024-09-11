@@ -14,7 +14,7 @@ const Category = () => {
         <div>
 
           <SectionTitle heading={"CATEGORY ALL PRODUCT"} imageHeading={icon}  ></SectionTitle>
-     <div className="mt-7">
+     <div className="mt-7 border-4 border-[#1d56aba6] px-10 pt-3 pb-4 rounded-2xl">
      <Swiper
         slidesPerView={1}
         spaceBetween={10}
@@ -36,18 +36,18 @@ const Category = () => {
         modules={[Pagination]}
         className="mySwiper"
       >
-        <SwiperSlide><Card className="w-[300px] mx-auto">
+        <SwiperSlide><Card className="w-[200px] h-[200px] mx-auto hover:animate-pulse">
       <CardHeader shadow={false} floated={false} className="h-96">
         <img
           src="https://i.ibb.co/5xC1pWm/punjabi1-square.jpg"
-          alt="card-image"
+          alt="Unavilable"
           className="h-full w-full object-cover"
         />
       </CardHeader>
      
      
     </Card></SwiperSlide>
-        <SwiperSlide><Card className="w-[300px] mx-auto">
+        <SwiperSlide><Card className="w-[200px] h-[200px] mx-auto hover:animate-pulse">
       <CardHeader shadow={false} floated={false} className="h-96">
         <img
           src="https://i.ibb.co/6WXXZdq/watch1.png"
@@ -58,7 +58,7 @@ const Category = () => {
      
      
     </Card></SwiperSlide>
-        <SwiperSlide><Card className="w-[300px] mx-auto">
+        <SwiperSlide><Card className="w-[200px] h-[200px] mx-auto hover:animate-pulse">
       <CardHeader shadow={false} floated={false} className="h-96">
         <img
           src="https://i.ibb.co/fpsJQMG/ezgif-1-3d0f4bc7e5.jpg"
@@ -69,7 +69,7 @@ const Category = () => {
      
      
     </Card></SwiperSlide>
-        <SwiperSlide><Card className="w-[300px] mx-auto">
+        <SwiperSlide><Card className="w-[200px] h-[200px] mx-auto hover:animate-pulse">
       <CardHeader shadow={false} floated={false} className="h-96">
         <img
           src="https://i.ibb.co/sHY5FVC/ACCESSORIES-mobile-laptop.jpg"
@@ -80,7 +80,7 @@ const Category = () => {
      
      
     </Card></SwiperSlide>
-        <SwiperSlide><Card className="w-[300px] mx-auto">
+        <SwiperSlide><Card className="w-[200px] h-[200px] mx-auto hover:animate-pulse">
       <CardHeader shadow={false} floated={false} className="h-96">
         <img
           src="https://i.ibb.co/C8JJrKq/207a246677-3-bf85c33570f58c756a71c759abaed375.webp"
@@ -91,7 +91,7 @@ const Category = () => {
      
      
     </Card></SwiperSlide>
-        <SwiperSlide><Card className="w-[300px] mx-auto">
+        <SwiperSlide><Card className="w-[200px] h-[200px] mx-auto hover:animate-pulse">
       <CardHeader shadow={false} floated={false} className="h-96">
         <img
           src="https://i.ibb.co/ydj60Kk/glasses-1.jpg"
