@@ -1,8 +1,13 @@
+import MensCard from "../MensCard/MensCard";
+import MensSlider from "../MensSlider/MensSlider";
+import SliderTwo from "../SliderTwo/SliderTwo";
 
 const Mens = () => {
     return (
         <div className="min-h-screen">
-            This men page
+            <MensSlider></MensSlider>
+            <SliderTwo></SliderTwo>
+            <MensCard></MensCard>
         </div>
     );
 };

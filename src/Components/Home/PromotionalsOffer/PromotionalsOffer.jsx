@@ -1,10 +1,10 @@
-
+import React from 'react';
 import Typewriter from 'typewriter-effect';
-import image from '../../../assets/banner/Black Men Clothing Promo Instagram Post.png'
-const PromotionalsOffer = () => {
+import image from '../../../assets/banner/Black Men Clothing Promo Instagram Post.png';
 
-    return (
-        <div className="min-h-screen flex items-center justify-center  ">
+const PromotionalsOffer = () => {
+  return (
+    <div className="min-h-screen flex items-center justify-center">
       <div
         className="hero h-[600px] w-full mt-10 mb-10 bg-fixed bg-cover bg-center"
         style={{
@@ -12,9 +12,12 @@ const PromotionalsOffer = () => {
         }}
       >
         <div className="hero-overlay backdrop-blur-sm"></div>
-        <div className="grid md:flex gap-5 px-4 md:px-10">
-          <div data-aos="fade-right"
-     data-aos-anchor-placement="center-bottom" className="hero-content bg-fixed flex items-center justify-center">
+        <div className="flex flex-col md:flex-row gap-5 px-4 md:px-10 items-center justify-center">
+          <div
+            data-aos="fade-right"
+            data-aos-anchor-placement="center-bottom"
+            className="hero-content bg-fixed flex items-center justify-center md:order-1 order-2"
+          >
             <div className="max-w-md text-center md:text-left">
               <div className="text-[23px] font-bold bg-clip-text md:w-80 lg:w-[500px] text-transparent text-white text-center creative-gradient-button mt-3">
                 <Typewriter
@@ -22,7 +25,6 @@ const PromotionalsOffer = () => {
                     strings: ['Men Summer Collection'],
                     autoStart: true,
                     loop: true,
-                    
                   }}
                 />
               </div>
@@ -36,16 +38,23 @@ const PromotionalsOffer = () => {
               </button>
             </div>
           </div>
-          <div className="hero-content flex items-center justify-center text-neutral-content text-center bg-fixed">
-            <div data-aos="fade-left"
-     data-aos-anchor-placement="center-bottom" className="max-w-md">
-              <img className="imageborderRounded w-full h-auto" src={image} alt="Product" />
+          <div
+            data-aos="fade-left"
+            data-aos-anchor-placement="center-bottom"
+            className="hero-content flex items-center justify-center text-neutral-content text-center bg-fixed md:order-2 order-1"
+          >
+            <div className="max-w-md">
+              <img
+                className="imageborderRounded w-full h-auto"
+                src={image}
+                alt="Product"
+              />
             </div>
           </div>
         </div>
       </div>
     </div>
-    );
+  );
 };
 
 export default PromotionalsOffer;

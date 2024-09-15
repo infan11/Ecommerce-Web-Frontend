@@ -19,10 +19,10 @@ const Footer = () => {
       const currentYear = new Date().getFullYear();
     return (
         <div>
-             <footer className="relative w-full">
+             <footer className="relative w-full mt-10">
       <div className="mx-auto w-full max-w-7xl px-8">
         <div className="grid grid-cols-1 justify-between gap-4 md:grid-cols-2">
-          <Typography variant="h5" className="mb-6">
+          <Typography variant="h5" className="mb-6 mt-0">
             APT COMMERCE
           </Typography>
           <div className="grid grid-cols-3 justify-between gap-4">
