@@ -1,6 +1,7 @@
 import MensCard from "../MensCard/MensCard";
 import MensSlider from "../MensSlider/MensSlider";
 import SliderTwo from "../SliderTwo/SliderTwo";
+import ThirdBanner from "../ThirdBanner/ThirdBanner";
 
 const Mens = () => {
     return (
@@ -8,6 +9,7 @@ const Mens = () => {
             <MensSlider></MensSlider>
             <SliderTwo></SliderTwo>
             <MensCard></MensCard>
+            <ThirdBanner></ThirdBanner>
         </div>
     );
 };
