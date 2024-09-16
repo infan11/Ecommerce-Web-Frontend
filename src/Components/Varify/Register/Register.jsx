@@ -13,6 +13,7 @@ import toast from "react-hot-toast";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import userHooks from "../../Hooks/UserHooks/userHooks";
+import UseAxiosPublic from "../../Hooks/AxiosPublic/UseAxiosPublic";
 
 
 
@@ -20,6 +21,7 @@ import userHooks from "../../Hooks/UserHooks/userHooks";
   const Register = () => {
     const {createUser ,googleUserProvider, twitterUserProvider,updateProfiles ,setUser} = userHooks();
     const navigate = useNavigate();
+    const axiosPublic = UseAxiosPublic();
     const from = location.state?.from?.pathname  || "/"
     const handleFormSubmit = async (event) => {
       event.preventDefault();
@@ -39,14 +41,25 @@ import userHooks from "../../Hooks/UserHooks/userHooks";
         const user = result.user;
         setUser(user)
         console.log(user);
+        
        updateProfiles(name , imageData?.data?.display_url)
+      
        .then(() => {
-        toast.success("Welcome To Our Web")
+        const userItem = {
+          name: name ,
+          email : email,
+          photo: imageData?.data?.display_url
+         }
+         axiosPublic.post("/users" , userItem)
+         .then(res => {
+          console.log(res.data, "send to dabase");
+         })
+     
         navigate(from , {replace : true})
        })
     
       })
-
+          
     };
    const handleGoogle = () => {
      googleUserProvider()
