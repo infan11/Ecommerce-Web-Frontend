@@ -19,6 +19,7 @@ import Contact from "../Components/Contact/Contact/Contact";
 import MyProfile from "../Components/Avatar/MyProfile/MyProfile";
 import ProfileEdit from "../Components/Avatar/ProfileEdit/ProfileEdit";
 import Dashboards from "../Components/Dasboards/Dashboards/Dashboards";
+import AddItem from "../Components/Dasboards/AddItem/AddItem";
 
 
 
@@ -100,6 +101,13 @@ export const router = createBrowserRouter([
     // Dashboard
     {
      path : "/dashboard",
-     element : <Dashboards/>
-    }
+     element : <Dashboards/>,
+     children : [
+        {
+            path: "/dashboard/addItem",
+            element: <AddItem></AddItem>
+        }
+     ]
+    },
+    
 ]);

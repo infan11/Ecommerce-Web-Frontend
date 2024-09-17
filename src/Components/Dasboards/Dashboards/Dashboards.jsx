@@ -1,8 +1,11 @@
+import { Outlet } from "react-router-dom";
+import DashboardNavbar from "../DashboardNavbar/DashboardNavbar";
 
 const Dashboards = () => {
     return (
         <div className="min-h-screen">
-            This is Dhasboard
+            <DashboardNavbar></DashboardNavbar>
+             <Outlet></Outlet>
         </div>
     );
 };

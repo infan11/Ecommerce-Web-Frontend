@@ -55,6 +55,7 @@ import UseAxiosPublic from "../../Hooks/AxiosPublic/UseAxiosPublic";
           console.log(res.data, "send to dabase");
          })
      
+     
         navigate(from , {replace : true})
        })
     
